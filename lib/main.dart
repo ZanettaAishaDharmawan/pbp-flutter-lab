@@ -114,18 +114,18 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             _counter % 2 == 0 ?
-              const Text(
-                'GENAP',
-                style: TextStyle(
+            const Text(
+              'GENAP',
+              style: TextStyle(
                   color: Colors.red
-                ),
-              )
-            : const Text(
-                'GANJIL',
-                style: TextStyle(
-                  color: Colors.blue
-                ),
               ),
+            )
+                : const Text(
+              'GANJIL',
+              style: TextStyle(
+                  color: Colors.blue
+              ),
+            ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
@@ -134,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(left: 30),
+        padding: const EdgeInsets.only(left: 35.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
