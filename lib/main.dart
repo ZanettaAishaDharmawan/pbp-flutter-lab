@@ -49,6 +49,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  bool isVisible = false;
 
   void _incrementCounter() {
     setState(() {
@@ -61,10 +62,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _decrement() {
+  void _decrementCounter() {
     setState(() {
       if (_counter > 0){
         _counter -= 1;
+      }
+    });
+  }
+
+  void _showButton(){
+    setState(() {
+      if (_counter == 0){
+        isVisible = false;
+      } else {
+        isVisible = true;
       }
     });
   }
@@ -123,24 +134,32 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: Padding(
-          padding: const EdgeInsets.only(left: 35.0),
+        padding: const EdgeInsets.only(left: 30),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            if (_counter > 0)
-              FloatingActionButton(
-                onPressed: _decrement,
-                tooltip: 'Decrement',
-                child: const Icon(Icons.remove),
-              ),
+            Visibility(
+                visible: isVisible,
+                child: FloatingActionButton(
+                  onPressed: () {
+                    _decrementCounter();
+                    _showButton();
+                  },
+                  tooltip: 'Decrement',
+                  child: const Icon(Icons.remove),
+                )),
+            Expanded(child: Container()),
             FloatingActionButton(
-              onPressed: _incrementCounter,
+              onPressed: () {
+                _incrementCounter();
+                _showButton();
+              },
               tooltip: 'Increment',
               child: const Icon(Icons.add),
             )
           ],
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
