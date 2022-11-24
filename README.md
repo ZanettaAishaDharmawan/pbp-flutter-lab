@@ -62,3 +62,31 @@ Ketika kita menjalankan navigator push, screen baru akan ditambahkan ke stack se
 3. Membuah halaman form untuk menerima input data Judul, Nominal, dan datetime
 4. Menyimpan input ke dalam card dan tersimpan dalam list
 5. Menampilkan card ke halaman data_budget
+
+# Tugas 9
+## Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+Ya, dapat mengambil data JSON tanpa membuat model terlebih dahulu. Namun, akan terdapat kekurangan, seperti tida dapat mengakses data tersebut sebaga sebuah "class" dan kurang efisien.
+
+## Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+- ```FutureBuilder```: Widget ini berfungsi untuk fetching data
+- ```ListTile```: Widget ini berfungsi untuk memberi bentuk list di widget dalamnya.
+- ```Padding```: Menambahkan jarak pada suatu elemen
+- ```Text```: Untuk menulis teks di layar
+- ```Container```: Widget ini berfungsi sebagai pembungkus widget lain
+- ```CheckBox```: Untuk mengubah state dari watched myWatchlist
+
+## Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
+1. Menambahkan dependedncy http pada pubspec.yaml
+2. Membuat model dengan fields yang sesuai dengan data JSON yang di GET
+3. Melakukan fetch data dengan HTTP Request GET
+4. Menkonversi data JSON menjadi object
+5. Memampilkan data menggunakan FutureBuilder
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+1. Menambahkan dependency http dan melakukan import
+2. Menambahkan ListTile WatchList pada drawer
+3. Membuat page watchlist.dart
+4. Melakukan fetching data JSON yang diimplementasikan pada fetch_data.dart
+5. Menambahkan StatefulWidget pada watchlist.dart yang berisi FutureBuilder
+6. Membuat my_watchlist_data.dart untuk menampilkan data
+7. Menampilkan data yang telah dikonversi ke aplikasi dengan FutureBuilder
